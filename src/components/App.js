@@ -40,7 +40,7 @@ const App = () => {
 
 
       //Async operation //POST,PUT OR DELETE
-      fetch("http://localhost:5000/products")
+      fetch("db/products")
       .then((res)=>{
 
         return res.json()
