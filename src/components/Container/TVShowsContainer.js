@@ -20,11 +20,13 @@ const DC = ({products,moviePressed}) => {
     <div className="carousel-wrapper">
       <Carousel breakPoints={breakPoints}>
         {products.map((item) => (
-           <Link to="./selectedmov"><img onClick={ ()=>{moviePressed(item.TVShows,item.TitleTV,item.describeTV,item.selectedTVImage,item.paraTV)}} src={item.TVShows} alt="Describe Image" className="containerImage" />
-           <h5 className="first-txt">
+           <div className="content_img">
+           <Link to="./selectedmov"><img onClick={ ()=>{moviePressed(item.TVShows,item.TitleTV,item.describeTV,item.selectedTVImage,item.paraTV)}}  src={item.TVShows} alt="TV Shows" className="containerImage"/>
+           <div><h4 className="first-txt">
             {item.TitleTV}
-        </h5>
-           </Link>
+        </h4></div>
+           
+           </Link></div>
         ))}
       </Carousel>
     </div>
