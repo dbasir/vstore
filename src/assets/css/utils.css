@@ -260,10 +260,14 @@ margin-top: 90px;
     box-shadow: 0 4px 4px rgba(83, 100, 255, 0.32);
   }
   #login{
-    margin-left: 940px;
+    float: right;
+  }
+ #register{
+    float: right;
   }
   .containerImage{
     width: 71%;
+    cursor: pointer;
   }
   .first-txt {
     width: 71%;
@@ -288,3 +292,37 @@ margin-top: 90px;
 .fa-facebook,.fa-instagram,.fa-twitter,.fa-snapchat-ghost {
   color: white;
 }
+/* Parent Container */
+.content_img{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  float: left;
+  margin-right: 10px;
+ }
+ 
+ /* Child Text Container */
+ .content_img h4{
+  position: absolute;
+  bottom: 0;
+  background: black;
+  color: white;
+  font-family: sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: visibility 0s, opacity 0.5s linear; 
+  transition: visibility 0s, opacity 0.5s linear;
+ }
+ 
+
+ .content_img:hover{
+  cursor: pointer;
+ }
+ 
+ .content_img:hover h4{
+  width: 142px;
+  padding: 8px 15px;
+  visibility: visible;
+  opacity: 0.7; 
+ }
+/**/
