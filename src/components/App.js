@@ -14,6 +14,7 @@ import Allmovies from "../pages/Allmovies";
 import '../assets/css/utils.css'
 import Selectedmov from "./selectedmov"
 import Login from "../pages/Loginpage"
+import Register from "../pages/Registration"
 
 
 
