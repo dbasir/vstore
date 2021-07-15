@@ -21,11 +21,13 @@ const DC = ({products,moviePressed}) => {
     <div className="carousel-wrapper">
       <Carousel breakPoints={breakPoints}>
         {products.map((item) => (
+           <div className="content_img">
            <Link to="./selectedmov"><img onClick={ ()=>{moviePressed(item.DC,item.TitleDC,item.describeDC,item.selectedDCImage,item.paraDC)}} src={item.DC} alt="Describe Image" className="containerImage"/>
-           <h5 className="first-txt">
+           <div><h4 className="first-txt">
             {item.TitleDC}
-        </h5>
-           </Link>
+        </h4></div>
+           
+           </Link></div>
         ))}
       </Carousel>
     </div>
