@@ -85,6 +85,11 @@ const App = () => {
               <Selectedmov products={products} imageval={imageval} para={para} descimage={descimage} moviePressed={moviePressed} title={title} describeMarvels={describeMarvels}/>
 
           </Route>
+<Route path="/register">
+
+              <Register products={products} moviePressed={moviePressed}/>
+
+          </Route>
           <Route path="/login">
 
               <Login products={products} moviePressed={moviePressed}/>
