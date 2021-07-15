@@ -18,12 +18,13 @@ const Marvel = ({products,moviePressed}) => {
     <h2 className="Headingwrapper">Marvel Collection</h2>
     <div className="carousel-wrapper">
       <Carousel breakPoints={breakPoints}>
-        {products.map((item) => (
-           <Link to="./selectedmov"><img onClick={ ()=>{moviePressed(item.img,item.TitleMarvel,item.describeMarvel,item.selectedMarvelImage,item.paraMarvel)}} src={item.img} alt="Describe Image" className="containerImage"/>
-            <h5 className="first-txt">
-            {item.TitleMarvel}
-        </h5>
-           </Link>
+        {products.map((item) => (<div className="content_img">
+            <Link to="./selectedmov"><img onClick={() => { moviePressed(item.img, item.TitleMarvel, item.describeMarvel, item.selectedMarvelImage, item.paraMarvel) }} src={item.img} alt="Describe Image" className="containerImage" />
+              <div><h4 className="first-txt">
+                {item.TitleMarvel}
+              </h4></div>
+
+            </Link></div>
         ))}
       </Carousel>
     </div>
