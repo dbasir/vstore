@@ -2,33 +2,33 @@ import React,{ useState } from 'react';
 import Header from "./Header";
 import Footer from './Footer'
   
-const SelectedMovie = (props) => {
-    const[marvelmovies,setArr]=useState({
-        marvel_title:props.title,
-        marvel_price:props.price,
-        marvel_synopsis:props.synopsis,
-        marvel_tag:props.tag,
-        marvel_small_poster:props.smallPoster,
-        marvel_large_poster:props.largePoster,
-        marvel_rent:props.rent,
-        marvel_purchase_outright:props.purchase,
-        marvel_featured:props.featured,
-        marvel_description:props.describe,
+const SelectedTV = (props) => {
+    const[tvshows,setArr]=useState({
+        tvshows_title:props.title,
+        tvshows_price:props.price,
+        tvshows_synopsis:props.synopsis,
+        tvshows_tag:props.tag,
+        tvshows_small_poster:props.smallPoster,
+        tvshows_large_poster:props.largePoster,
+        tvshows_rent:props.rent,
+        tvshows_purchase_outright:props.purchase,
+        tvshows_featured:props.featured,
+        tvshows_description:props.describe,
     })
     const submitform=(e)=>{
         
-        console.log(marvelmovies);
+        console.log(tvshows);
         e.preventDefault();
-        fetch("http://localhost:5002/marvelmovies/"+props.id,{
+        fetch("http://localhost:5002/tvshows/"+props.id,{
             method:"PUT",
             headers:{
                 'Content-Type':'application/json'
             },
-            body: JSON.stringify(marvelmovies)
+            body: JSON.stringify(tvshows)
         })
       .then((res) =>res.json())
       .then(data => {
-        alert(`Movie: ${marvelmovies.title} is updated successfully!!!`)
+        alert(`Movie: ${tvshows.title} is updated successfully!!!`)
       })
       .catch((err) => {
         console.log(`Error ${err}`);
@@ -42,91 +42,91 @@ const SelectedMovie = (props) => {
          <form action="/" method="PUT" onSubmit={submitform}>
                     <div class="form-group">
                         <label for="email">Title:</label>
-                        <input type="text" class="form-control" id="title" placeholder="Title" value={marvelmovies.marvel_title} name="title" onChange={event=>{
+                        <input type="text" class="form-control" id="title" placeholder="Title" value={tvshows.tvshowstitle} name="title" onChange={event=>{
                             setArr({
-                                ...marvelmovies,
-                                marvel_title:event.target.value
+                                ...tvshows,
+                                tvshows_title:event.target.value
                             })
                         }}/>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Price:</label>
-                        <input type="text" class="form-control" id="price" placeholder="Price" value={marvelmovies.marvel_price} name="price" onChange={event=>{
+                        <input type="text" class="form-control" id="price" placeholder="Price" value={tvshows.tvshows_price} name="price" onChange={event=>{
                             setArr({
-                                ...marvelmovies,
-                                marvel_price:event.target.value
+                                ...tvshows,
+                                tvshows_price:event.target.value
                             })
                         }}/>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Synopsis:</label>
-                        <input type="text" class="form-control" id="synopsis" placeholder="Synopsis" value={marvelmovies.marvel_synopsis} name="synopsis" onChange={event=>{
+                        <input type="text" class="form-control" id="synopsis" placeholder="Synopsis" value={tvshows.tvshows_synopsis} name="synopsis" onChange={event=>{
                             setArr({
-                                ...marvelmovies,
-                                marvel_synopsis :event.target.value
+                                ...tvshows,
+                                tvshows_synopsis :event.target.value
                             })
                         }} />
                     </div>
                     <div class="form-group">
                         <label for="pwd">Tag:</label>
-                        <input type="text" class="form-control" id="tag" placeholder="Tag" value={marvelmovies.marvel_tag} name="tag" onChange={event=>{
+                        <input type="text" class="form-control" id="tag" placeholder="Tag" value={tvshows.tvshows_tag} name="tag" onChange={event=>{
                             setArr({
-                                ...marvelmovies,
-                                marvel_tag:event.target.value
+                                ...tvshows,
+                                tvshows_tag:event.target.value
                             })
                         }}/>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Small Poster Path:</label>
-                        <input type="text" class="form-control" id="smallposter" placeholder="Small Poster Path" value={marvelmovies.marvel_small_poster} name="smallposter" onChange={event=>{
+                        <input type="text" class="form-control" id="smallposter" placeholder="Small Poster Path" value={tvshows.tvshows_small_poster} name="smallposter" onChange={event=>{
                             setArr({
-                                ...marvelmovies,
-                                marvel_small_poster:event.target.value
+                                ...tvshows,
+                                tvshows_small_poster:event.target.value
                             })
                         }}/>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Large Poster Path:</label>
-                        <input type="text" class="form-control" id="largeposter" placeholder="Large Poster Path" value={marvelmovies.marvel_large_poster} name="largeposter" onChange={event=>{
+                        <input type="text" class="form-control" id="largeposter" placeholder="Large Poster Path" value={tvshows.tvshows_large_poster} name="largeposter" onChange={event=>{
                             setArr({
-                                ...marvelmovies,
-                                marvel_large_poster:event.target.value
+                                ...tvshows,
+                                tvshows_large_poster:event.target.value
                             })
-                        }}/>
+                        }}/>tvshows
                     </div>
                     <div class="form-group">
                         <label for="pwd">Rent:</label>
-                        <input type="text" class="form-control" id="rent" placeholder="Rent" name="rent" value={marvelmovies.marvel_rent} onChange={event=>{
+                        <input type="text" class="form-control" id="rent" placeholder="Rent" name="rent" value={tvshows.tvshows_rent} onChange={event=>{
                             setArr({
-                                ...marvelmovies,
-                                marvel_rent:event.target.value
+                                ...tvshows,
+                                tvshows_rent:event.target.value
                             })
                         }}/>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Purchase Outright:</label>
-                        <input type="text" class="form-control" id="purchase" placeholder="Purchase Outright" value={marvelmovies.marvel_purchase_outright} name="purchase" onChange={event=>{
+                        <input type="text" class="form-control" id="purchase" placeholder="Purchase Outright" value={tvshows.tvshows_purchase_outright} name="purchase" onChange={event=>{
                             setArr({
-                                ...marvelmovies,
-                                marvel_purchase_outright:event.target.value
+                                ...tvshows,
+                                tvshows_purchase_outright:event.target.value
                             })
                         }}/>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Featured:</label>
-                        <input type="text" class="form-control" id="featured" placeholder="Featured" value={marvelmovies.marvel_featured} name="featured" onChange={event=>{
+                        <input type="text" class="form-control" id="featured" placeholder="Featured" value={tvshows.tvshows_featured} name="featured" onChange={event=>{
                             setArr({
-                                ...marvelmovies,
-                                marvel_featured:event.target.value
+                                ...tvshows,
+                                tvshows_featured:event.target.value
                             })
                         }}/>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Description:</label>
-                        <textarea  type="text" class="form-control" id="description" placeholder="Description" value={marvelmovies.marvel_description} name="description" rows="4" cols="50" onChange={event=>{
+                        <textarea  type="text" class="form-control" id="description" placeholder="Description" value={tvshows.tvshows_description} name="description" rows="4" cols="50" onChange={event=>{
                             setArr({
-                                ...marvelmovies,
-                                marvel_description:event.target.value
+                                ...tvshows,
+                                tvshows_description:event.target.value
                             })
                         }}/>
                     </div>
@@ -162,7 +162,7 @@ const SelectedMovie = (props) => {
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col"><button class="editButton" onClick={onClick}>Edit Movie</button></div>
+                            <div class="col"><button class="editButton" onClick={onClick}>Edit TV Show</button></div>
                             { showResults ? <Results /> : null }
                         </div>
 
@@ -178,6 +178,6 @@ const SelectedMovie = (props) => {
     )
 }
 
-export default SelectedMovie
+export default SelectedTV
 
 /*   <img id="imgg" src={process.env.PUBLIC_URL + props.imageval} alt="Describe Image" /> */

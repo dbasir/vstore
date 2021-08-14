@@ -9,19 +9,19 @@ const breakPoints = [
     { width: 1200, itemsToShow: 6 }
   ];
  
-const Marvel = ({products,moviePressed}) => {
+const Marvel = ({marvelmovies,moviePressed}) => {
 
   return (
-    <div className="Marvel">
+    <div >
 
    
     <h2 className="Headingwrapper">Marvel Collection</h2>
     <div className="carousel-wrapper">
       <Carousel breakPoints={breakPoints}>
-        {products.map((item) => (<div className="content_img">
-            <Link to="./selectedmov"><img onClick={() => { moviePressed(item.img, item.TitleMarvel, item.describeMarvel, item.selectedMarvelImage, item.paraMarvel) }} src={item.img} alt="Describe Image" className="containerImage" />
+        {marvelmovies.map((item) => (<div className="content_img">
+            <Link to="./selectedmov"><img onClick={() => { moviePressed(item.marvel_title,item.marvel_price, item.marvel_synopsis,item.marvel_tag, item.marvel_small_poster, item.marvel_large_poster,item.marvel_rent,item.marvel_purchase_outright,item.marvel_featured, item.marvel_description, item.id) }} src={item.marvel_small_poster} alt="Marvel" className="containerImage" />
               <div><h4 className="first-txt">
-                {item.TitleMarvel}
+                {item.marvel_title}
               </h4></div>
 
             </Link></div>

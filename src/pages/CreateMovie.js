@@ -1,26 +1,27 @@
 import React,{ useState } from 'react';
-import Header from "./Header";
-import Footer from './Footer'
-  
-const SelectedMovie = (props) => {
+import Header from "../components/Header";
+import Footer from '../components/Footer'
+
+const CreateMovie = () => {
     const[marvelmovies,setArr]=useState({
-        marvel_title:props.title,
-        marvel_price:props.price,
-        marvel_synopsis:props.synopsis,
-        marvel_tag:props.tag,
-        marvel_small_poster:props.smallPoster,
-        marvel_large_poster:props.largePoster,
-        marvel_rent:props.rent,
-        marvel_purchase_outright:props.purchase,
-        marvel_featured:props.featured,
-        marvel_description:props.describe,
+        marvel_title:"",
+        marvel_price:"",
+        marvel_synopsis:"",
+        marvel_tag:"",
+        marvel_small_poster:"",
+        marvel_large_poster:"",
+        marvel_rent:"",
+        marvel_purchase_outright:"",
+        marvel_featured:"",
+        marvel_description:"",
     })
+
     const submitform=(e)=>{
         
         console.log(marvelmovies);
         e.preventDefault();
-        fetch("http://localhost:5002/marvelmovies/"+props.id,{
-            method:"PUT",
+        fetch("http://localhost:5002/marvelmovies",{
+            method:"POST",
             headers:{
                 'Content-Type':'application/json'
             },
@@ -28,18 +29,19 @@ const SelectedMovie = (props) => {
         })
       .then((res) =>res.json())
       .then(data => {
-        alert(`Movie: ${marvelmovies.title} is updated successfully!!!`)
+        alert(`Movie: ${marvelmovies.marvel_title} is added successfully!!!`)
       })
       .catch((err) => {
         console.log(`Error ${err}`);
       })
     }
-    const [showResults, setShowResults] = useState(false)
-    const onClick = () => setShowResults(true)
-     const Results = () => (
-      
-    <div id="results" className="search-results">
-         <form action="/" method="PUT" onSubmit={submitform}>
+
+    return (
+        <div id="container">
+            <Header />
+            <div class="container" id="cont">
+                <h2>Create a Movie</h2>
+                <form action="/" method="POST" onSubmit={submitform}>
                     <div class="form-group">
                         <label for="email">Title:</label>
                         <input type="text" class="form-control" id="title" placeholder="Title" value={marvelmovies.marvel_title} name="title" onChange={event=>{
@@ -132,52 +134,14 @@ const SelectedMovie = (props) => {
                     </div>
 
                     
-                    <button type="submit" class="btn btn-default">Update Movie</button>
+                    <button type="submit" class="btn btn-default">Create Movie</button>
                 </form>
-           
-    </div>
-  ) 
-
-    return (
-        <div id="container">
-            <Header />
-            <div class="container" id="cont">
-                <h2>{props.title}</h2>
-                <div class="row" id="roww">
-                    <div class="col-sm-4" id="col1">
-                        <img id="imgg" src={props.smallPoster} alt="Small poster" />
-                    </div>
-                    <div class="col-sm-4" id="col2">
-                        <h2 className="Headingwrapper">{props.title}</h2>
-                        <p className="Headingwrapper">{props.synopsis}</p>
-                        <p><span className="fa fa-star checked"></span>
-                            <span className="fa fa-star checked"></span>
-                            <span className="fa fa-star checked"></span>
-                            <span className="fa fa-star"></span>
-                            <span className="fa fa-star"></span></p>
-                        <p className="Headingwrapper">{props.describe}</p>
-                        <div class="row">
-                            <div class="col">
-                                <p><button class="play">${props.rent} Rent</button><button class="play">${props.purchase} Buy</button></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col"><button class="editButton" onClick={onClick}>Edit Movie</button></div>
-                            { showResults ? <Results /> : null }
-                        </div>
-
-                    </div>
-                    <div class="col-sm-4" id="col3">
-                        <img id="imgdesc" src={props.largePoster} alt="largeposter" />
-                    </div>
-                </div>
-
             </div>
             <Footer />
         </div>
     )
 }
 
-export default SelectedMovie
+export default CreateMovie
 
 /*   <img id="imgg" src={process.env.PUBLIC_URL + props.imageval} alt="Describe Image" /> */

@@ -241,8 +241,24 @@ margin-top: 90px;
     background-color: #20B8DC; /* Green */
     border: none;
     color: white;
-    padding-right: 40px;
-    padding-left: 40px;
+    padding-right: 45px;
+    padding-left: 45px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  .editButton {
+    background-color: #20B8DC; /* Green */
+    border: none;
+    color: white;
+    padding-right: 110px;
+    padding-left: 110px;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
@@ -259,6 +275,11 @@ margin-top: 90px;
     color: #339DFF;
     box-shadow: 0 4px 4px rgba(83, 100, 255, 0.32);
   }
+  .editButton:hover {
+    background: #fff;
+    color: #339DFF;
+    box-shadow: 0 4px 4px rgba(83, 100, 255, 0.32);
+  }
   #login{
     float: right;
   }
@@ -266,7 +287,7 @@ margin-top: 90px;
     float: right;
   }
   .containerImage{
-    width: 71%;
+    width: 100%;
     cursor: pointer;
   }
   .first-txt {
@@ -295,8 +316,8 @@ margin-top: 90px;
 /* Parent Container */
 .content_img{
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 70%;
   float: left;
   margin-right: 10px;
  }

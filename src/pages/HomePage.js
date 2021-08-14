@@ -2,23 +2,24 @@ import React from 'react';
 
 import Header from "../components/Header";
 import MarvelContainer from "../components/Container/MarvelContainer";
-import Slideshow from '../components/slideshow'
+import Slideshow from '../components/slideshowFeature'
 import Footer from '../components/Footer'
 import TVContainer from "../components/Container/TVShowsContainer";
-import ContentContainer from '../components/Container/ContentContainer';
-import Example from "../components/Container/exampleContainer"
 
-const HomePage = ({products,moviePressed,DCval}) => {
+
+
+
+const HomePage = ({marvelmovies,moviePressed,tvshows}) => {
     return (
         <div id="container">
             <Header/>
             <main>
-                <Slideshow/>
-               
-                <MarvelContainer   products={products} moviePressed={moviePressed} DCval={DCval}/>
-                <Example products={products} moviePressed={moviePressed}/>
-                <TVContainer products={products} moviePressed={moviePressed}/>
-                <ContentContainer products={products}/>
+                
+            <Slideshow marvelmovies={marvelmovies} moviePressed={moviePressed}/>
+                <MarvelContainer   marvelmovies={marvelmovies} moviePressed={moviePressed}/>
+                <TVContainer tvshows={tvshows} moviePressed={moviePressed}/>
+                
+                
                 
             </main>
             <Footer/>

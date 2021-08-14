@@ -10,7 +10,7 @@ const breakPoints = [
     { width: 1200, itemsToShow: 6 }
   ];
  
-const DC = ({products,moviePressed}) => {
+const DC = ({tvshows,moviePressed}) => {
 
   return (
     <div className="DC">
@@ -19,11 +19,11 @@ const DC = ({products,moviePressed}) => {
     <h2 className="Headingwrapper">Top TV Shows Collection</h2>
     <div className="carousel-wrapper">
       <Carousel breakPoints={breakPoints}>
-        {products.map((item) => (
+        {tvshows.map((item) => (
            <div className="content_img">
-           <Link to="./selectedmov"><img onClick={ ()=>{moviePressed(item.TVShows,item.TitleTV,item.describeTV,item.selectedTVImage,item.paraTV)}}  src={item.TVShows} alt="TV Shows" className="containerImage"/>
+           <Link to="./selectedTV"><img onClick={ ()=>{moviePressed(item.tvshows_title,item.tvshows_price, item.tvshows_synopsis,item.tvshows_tag, item.tvshows_small_poster, item.tvshows_large_poster,item.tvshows_rent,item.tvshows_purchase_outright,item.tvshows_featured, item.tvshows_description, item.id)}}  src={item.tvshows_small_poster} alt="TV Shows" className="containerImage"/>
            <div><h4 className="first-txt">
-            {item.TitleTV}
+            {item.tvshows_title}
         </h4></div>
            
            </Link></div>
