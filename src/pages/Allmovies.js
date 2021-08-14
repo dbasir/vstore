@@ -18,22 +18,16 @@ const AllMovies = (props) => {
                             <section1 id="DCsection1">
 
 
-                                {props.products.map((item) => (
+                                {props.marvelmovies.map((item) => (
                                     <Link to="./selectedmov">
                                         <div class="item">
-
                                             <a href="#">
-                                                <img class="Allimage" onClick={() => { props.moviePressed(item.img, item.TitleMarvel, item.describeMarvel, item.selectedMarvelImage, item.paraMarvel) }} src={item.img} alt="Describe Image" />
+                                                <img class="Allimage" onClick={() => { props.moviePressed(item.marvel_title,item.marvel_price, item.marvel_synopsis,item.marvel_tag, item.marvel_small_poster, item.marvel_large_poster,item.marvel_rent,item.marvel_purchase_outright,item.marvel_featured, item.marvel_description, item.id) }} src={item.marvel_small_poster} alt="All Movies" />
                                                 <h5 className="first-ttxt">
-            {item.TitleMarvel}
+            {item.marvel_title}
         </h5>
                                             </a>
-                                            <a href="#">
-                                                <img class="Allimage" onClick={() => { props.moviePressed(item.DC,item.TitleDC,item.describeDC,item.selectedDCImage,item.paraDC) }} src={item.DC} alt="Describe Image" />
-                                                <h5 className="first-ttxt">
-            {item.TitleDC}
-        </h5>
-                                            </a>
+        
 
                                         </div>
                                         

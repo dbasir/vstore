@@ -113,7 +113,7 @@ const App = () => {
 
         <Route path="/alltv">
 
-          <Alltvshows products={products} moviePressed={moviePressed} />
+          <Alltvshows tvshows={tvshows} moviePressed={moviePressed} />
 
         </Route>
 
@@ -121,7 +121,7 @@ const App = () => {
 
         <Route path="/allmovies">
 
-          <Allmovies products={products} moviePressed={moviePressed} />
+          <Allmovies marvelmovies={marvelmovies} moviePressed={moviePressed} />
 
         </Route>
         <Route path="/selectedmov">

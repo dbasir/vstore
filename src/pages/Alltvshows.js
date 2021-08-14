@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import { Link } from "react-router-dom";
 
 const Alltvshows = (props) => {
+    console.log(props.tvshows);
     return (
         <div id="container">
             <Header />
@@ -14,14 +15,14 @@ const Alltvshows = (props) => {
                         <section1 id="DCsection1">
 
 
-                            {props.products.map((item) => (
-                                <Link to="./selectedmov">
+                            {props.tvshows.map((item) => (
+                                <Link to="./selectedTV">
                                     <div class="item">
 
                                         <a href="#">
-                                            <img class="Allimage" onClick={() => { props.moviePressed(item.TVShows, item.TitleTV, item.describeTV, item.selectedTVImage, item.paraTV) }} src={item.TVShows} alt="Describe Image" />
+                                            <img class="Allimage" onClick={() => { props.moviePressed(item.tvshows_title,item.tvshows_price, item.tvshows_synopsis,item.tvshows_tag, item.tvshows_small_poster, item.tvshows_large_poster,item.tvshows_rent,item.tvshows_purchase_outright,item.tvshows_featured, item.tvshows_description, item.id) }} src={item.tvshows_small_poster} alt="All TV" />
                                             <h5 className="first-ttxt">
-                                                {item.TitleTV}
+                                                {item.tvshows_title}
                                             </h5>
                                         </a>
 
@@ -32,8 +33,6 @@ const Alltvshows = (props) => {
 
 
                         </section1>
-
-
                     </div>
 
 
