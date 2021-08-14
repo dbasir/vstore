@@ -28,7 +28,7 @@ const SelectedTV = (props) => {
         })
       .then((res) =>res.json())
       .then(data => {
-        alert(`Movie: ${tvshows.title} is updated successfully!!!`)
+        alert(`TV Show: ${tvshows.title} is updated successfully!!!`)
       })
       .catch((err) => {
         console.log(`Error ${err}`);
