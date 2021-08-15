@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import Header from "../components/Header";
-import Footer from '../components/Footer'
 import "../assets/css/login.css"
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 
@@ -26,7 +23,7 @@ const Login = () => {
         })
             .then((res) => res.json())
             .then(data => {
-                alert(`User: ${users.firstName} is logged in successfully!!!`)
+                alert(`User: ${users.username} is logged in successfully!!!`)
                 history.push("/");
             })
             .catch((err) => {

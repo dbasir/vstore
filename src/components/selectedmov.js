@@ -1,8 +1,10 @@
 import React,{ useState } from 'react';
 import Header from "./Header";
 import Footer from './Footer'
+import { useHistory } from "react-router-dom";
   
 const SelectedMovie = (props) => {
+    const history = useHistory();
     const[marvelmovies,setArr]=useState({
         marvel_title:props.title,
         marvel_price:props.price,
@@ -28,14 +30,19 @@ const SelectedMovie = (props) => {
         })
       .then((res) =>res.json())
       .then(data => {
-        alert(`Movie: ${marvelmovies.title} is updated successfully!!!`)
+        alert(`Movie: ${marvelmovies.marvel_title} is updated successfully!!!`);
+        setShowResults(false)
       })
       .catch((err) => {
         console.log(`Error ${err}`);
       })
     }
     const [showResults, setShowResults] = useState(false)
-    const onClick = () => setShowResults(true)
+    const onClick = () => {
+        if(showResults===true){setShowResults(false)}
+        if(showResults===false){setShowResults(true)}
+        
+    }
      const Results = () => (
       
     <div id="results" className="search-results">

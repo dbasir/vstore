@@ -1,8 +1,10 @@
 import React,{ useState } from 'react';
 import Header from "./Header";
-import Footer from './Footer'
+import Footer from './Footer';
+import { useHistory } from "react-router-dom";
   
 const SelectedTV = (props) => {
+    const history = useHistory();
     const[tvshows,setArr]=useState({
         tvshows_title:props.title,
         tvshows_price:props.price,
@@ -28,21 +30,26 @@ const SelectedTV = (props) => {
         })
       .then((res) =>res.json())
       .then(data => {
-        alert(`TV Show: ${tvshows.title} is updated successfully!!!`)
+        alert(`TV Show: ${tvshows.tvshows_title} is updated successfully!!!`);
+        setShowResults(false)
       })
       .catch((err) => {
         console.log(`Error ${err}`);
       })
     }
     const [showResults, setShowResults] = useState(false)
-    const onClick = () => setShowResults(true)
+    const onClick = () => {
+        if(showResults===true){setShowResults(false)}
+        if(showResults===false){setShowResults(true)}
+        
+    }
      const Results = () => (
       
     <div id="results" className="search-results">
          <form action="/" method="PUT" onSubmit={submitform}>
                     <div class="form-group">
                         <label for="email">Title:</label>
-                        <input type="text" class="form-control" id="title" placeholder="Title" value={tvshows.tvshowstitle} name="title" onChange={event=>{
+                        <input type="text" class="form-control" id="title" placeholder="Title" value={tvshows.tvshows_title} name="title" onChange={event=>{
                             setArr({
                                 ...tvshows,
                                 tvshows_title:event.target.value
